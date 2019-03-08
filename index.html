@@ -1,0 +1,59 @@
+<html>
+  <head>
+	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+	<script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="script/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="style/main.css">
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+  </head>
+  <body>
+  
+      <div id="mapContainer"></div>
+	  
+  <script>
+    // Initialize the platform object:
+    var platform = new H.service.Platform({
+    'app_id': 'ndZGCD5SxZfJNGEBNlEg',
+    'app_code': '-NBUc-TvJFhYxsc6TzAgOw'
+    });
+
+    // Obtain the default map types from the platform object
+    var maptypes = platform.createDefaultLayers();
+
+    // Instantiate (and display) a map object:
+    var map = new H.Map(
+    document.getElementById('mapContainer'),
+    maptypes.normal.map,
+    {
+      zoom: 16,
+      center: { lng: 5.11894, lat: 52.09332 }, 
+    });
+	
+	// Create markers on the map
+	function addMarkersToMap(mapContainer) {
+		var num1Marker = new H.map.Marker({lat:52.09332, lng:5.11894});
+		map.addObject(num1Marker);
+	}
+	
+	addMarkersToMap(mapContainer);
+
+  </script>
+  
+	<div id="opnContainer">
+		<h2>Stadswandeling</h2>
+		<h1>Utrecht</h1>
+		<p class="opnPara">Klik 'Start' om te beginnen!</p>
+		<button class="btn">Start</button>
+		<p class="opnCred">Gemaakt door <a href="http://van-seeters.nl">Guido</a></p>
+	</div>
+	
+	<div id="loc1Container">
+		<h2>locatie #1 - Nijntjepleintje</h2>
+		<p class="locPara">Eerste locatie!</p>
+		<button class="btnVer">Verder</button>
+	</div>
+  
+  </body>
+</html>
